@@ -1,0 +1,7 @@
+{
+  "name": "LkMaxzBlock",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
