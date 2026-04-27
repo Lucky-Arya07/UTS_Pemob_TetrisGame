@@ -1,0 +1,143 @@
+
+/* 🌌 BACKGROUND */
+ion-content {
+  --background: linear-gradient(180deg, #0b0f1a, #000);
+  color: white;
+  font-family: Arial, sans-serif;
+}
+
+/* 🎮 TITLE */
+.title {
+  text-align: center;
+  font-size: 40px;
+  margin-top: 40px;
+  letter-spacing: 5px;
+  color: #00f0f0;
+  text-shadow: 0 0 10px #00f0f0;
+}
+
+/* 🎮 MENU */
+.menu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  padding: 20px;
+  gap: 15px;
+}
+
+/* ⚙️ SETTINGS */
+.settings {
+  padding: 20px;
+  text-align: center;
+}
+
+.settings h2,
+.settings p {
+  color: #ffffff;
+}
+
+.setting-box {
+  margin: 20px 0;
+  color: #ffffff;
+}
+
+.setting-box p {
+  margin-bottom: 5px;
+}
+
+/* 🎮 GAME WRAPPER */
+.game-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 10px;
+}
+
+/* 🔙 BACK BUTTON */
+.back-btn {
+  margin-bottom: 10px;
+  --background: linear-gradient(45deg, #444, #111);
+  --color: #fff;
+  --border-radius: 10px;
+}
+
+/* 🧠 HUD */
+.hud {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.hud p {
+  color: #ffffff;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 240, 240, 0.7);
+}
+
+/* 🎮 HOLD BOX */
+.hold-box {
+  color: #00f0f0;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+/* 🟦 CANVAS */
+canvas {
+  background: #000;
+  border: 2px solid #00f0f0;
+  box-shadow: 0 0 15px #00f0f0;
+  border-radius: 10px;
+}
+
+/* 🎮 CONTROLS */
+.controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+/* ⏸️ PAUSE */
+.pause-btn {
+  margin-top: 10px;
+  --background: linear-gradient(45deg, #ff0055, #ff8800);
+  --border-radius: 10px;
+}
+
+/* ⚙️ RANGE */
+ion-range {
+  --bar-background: #333;
+  --bar-background-active: #00f0f0;
+  --knob-background: #ffffff;
+}
+
+/* 💀 GAME OVER */
+.gameover {
+  position: absolute;
+  top: 35%;
+  width: 100%;
+  text-align: center;
+  color: white;
+  background: rgba(0,0,0,0.8);
+  padding: 20px;
+  border: 2px solid #ff0055;
+  border-radius: 10px;
+}
+
+.gameover h1 {
+  color: #ff0055;
+  text-shadow: 0 0 10px #ff0055;
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 480px) {
+  canvas {
+    transform: scale(0.9);
+  }
+
+  .title {
+    font-size: 30px;
+  }
+}

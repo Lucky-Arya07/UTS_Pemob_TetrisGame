@@ -32,7 +32,11 @@
               }
             ],
             "styles": ["src/global.scss", "src/theme/variables.scss"],
-            "scripts": []
+            "scripts": [],
+            "allowedCommonJsDependencies": [
+              "localforage",
+              "@ionic/storage"
+            ]
           },
           "configurations": {
             "production": {
@@ -136,7 +140,8 @@
   "cli": {
     "schematicCollections": [
       "@ionic/angular-toolkit"
-    ]
+    ],
+    "analytics": "091cb42b-20c1-4db2-8a02-44012e6186f2"
   },
   "schematics": {
     "@ionic/angular-toolkit:component": {
