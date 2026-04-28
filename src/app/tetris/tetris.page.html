@@ -1,105 +1,65 @@
 <ion-content>
 
-  <!-- 🎮 MAIN MENU -->
+  <title>LkMaxzBlock</title>
+
   <div *ngIf="!gameStarted && !showSettings" class="menu">
-
     <h1 class="title">LkMaxzBlock</h1>
-
-    <ion-button expand="block" (click)="startButton()">
-      START
-    </ion-button>
-
-    <ion-button expand="block" (click)="showSettings = true">
-      SETTINGS
-    </ion-button>
-
+    <ion-button expand="block" (click)="startButton()">START</ion-button>
+    <ion-button expand="block" (click)="showSettings = true">SETTINGS</ion-button>
   </div>
 
-  <!-- ⚙️ SETTINGS -->
   <div *ngIf="showSettings" class="settings">
-
     <h2>SETTINGS</h2>
-
     <div class="setting-box">
       <p>Music Volume</p>
-      <ion-range
-        min="0"
-        max="1"
-        step="0.01"
-        [(ngModel)]="musicVolume"
-        (ionChange)="updateVolume()">
-      </ion-range>
+      <ion-range min="0" max="1" step="0.01" [(ngModel)]="musicVolume" (ionChange)="updateVolume()"></ion-range>
     </div>
-
     <div class="setting-box">
       <p>SFX Volume</p>
-      <ion-range
-        min="0"
-        max="1"
-        step="0.01"
-        [(ngModel)]="sfxVolume"
-        (ionChange)="updateVolume()">
-      </ion-range>
+      <ion-range min="0" max="1" step="0.01" [(ngModel)]="sfxVolume" (ionChange)="updateVolume()"></ion-range>
     </div>
-
-    <ion-button expand="block" (click)="showSettings = false">
-      BACK
-    </ion-button>
-
+    <ion-button expand="block" (click)="showSettings = false">BACK</ion-button>
   </div>
 
-  <!-- 🎮 GAME SCREEN -->
   <div *ngIf="gameStarted" class="game-wrapper">
+    <ion-button class="back-btn" (click)="backToMenu()">⬅️ MENU</ion-button>
 
-    <!-- 🔙 BACK -->
-    <ion-button class="back-btn" (click)="backToMenu()">
-      ⬅️ BACK
-    </ion-button>
-
-    <!-- 🧠 HUD -->
     <div class="hud">
       <p>Score: {{ score }}</p>
       <p>Level: {{ level }}</p>
-      <p>High Score: {{ highScore }}</p>
+      <p>High: {{ highScore }}</p>
     </div>
 
-    <!-- 🎮 HOLD -->
     <div class="hold-box">
-      <p>HOLD</p>
+      <p>HOLD: {{ holdPiece ? 'READY' : 'EMPTY' }}</p>
     </div>
 
-    <!-- 🟦 CANVAS -->
     <canvas #board></canvas>
 
-    <!-- 🎮 CONTROLS -->
     <div class="controls">
-
       <ion-button (click)="moveLeft()">⬅️</ion-button>
-
       <ion-button (click)="rotate()">🔄</ion-button>
-
       <ion-button (click)="moveRight()">➡️</ion-button>
-
       <ion-button (click)="hold()">HOLD</ion-button>
-
     </div>
 
-    <!-- ⏸️ PAUSE -->
     <ion-button class="pause-btn" (click)="togglePause()">
       {{ paused ? 'RESUME ▶️' : 'PAUSE ⏸️' }}
     </ion-button>
 
-    <!-- 💀 GAME OVER -->
-    <div *ngIf="gameOver" class="gameover">
-      <h1>GAME OVER</h1>
-
-      <p>Your Score: {{ score }}</p>
-
-      <ion-button expand="block" (click)="startButton()">
-        RESTART
-      </ion-button>
+    <div *ngIf="gameOver" class="gameover-overlay">
+      <div class="gameover-card">
+        <h1 class="blink-text">GAME OVER</h1>
+        <div class="stats-group">
+          <p>Score: <strong>{{ score }}</strong></p>
+          <p>Level: <strong>{{ level }}</strong></p>
+        </div>
+        <div class="button-group">
+          <ion-button expand="block" color="success" (click)="restartGame()">COBA LAGI 🔄</ion-button>
+          <ion-button expand="block" color="light" (click)="backToMenu()">MENU UTAMA 🏠</ion-button>
+        </div>
+      </div>
     </div>
-
   </div>
 
 </ion-content>
